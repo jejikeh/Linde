@@ -1,4 +1,5 @@
-﻿using Linde;
+﻿using System.Numerics;
+using Linde;
 class Algae
 {
     private static void Main()
@@ -6,8 +7,18 @@ class Algae
         // Setup the rules
         List<LRule> rules = new List<LRule>()
         {
-            new LRule('A',new List<string>(){"AB"}),
-            new LRule('B',new List<string>(){"A"}),
+            new LRule(
+                'A',
+                new List<string>(){"AB"},
+                ActionType.Draw
+            ),
+
+            new LRule(
+                'B',
+                new List<string>(){"A"},
+                ActionType.Turn,
+                29f
+            ),
         };
 
         // Setup config
@@ -15,14 +26,20 @@ class Algae
             axiom: "A",
             rules: rules,
             length: 1,
-            turnAngle: 2
+            startDirection : new Vector2(0,1),
+            startPosition : new Vector2(0,0)
         );
 
         // Class instance
         LSystem linde = new LSystem(config);
 
-
-        Console.WriteLine(linde.GenerateSentence(20));
+        linde.GenerateSentence(3);
+        
+        foreach(LStep step in linde.GenerateSteps())
+        {
+            Console.WriteLine(step.Position);
+        }
+        
 
     }
 }

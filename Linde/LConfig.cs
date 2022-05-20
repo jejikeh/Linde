@@ -1,4 +1,5 @@
-﻿namespace Linde
+﻿using System.Numerics;
+namespace Linde
 {
     public struct LConfig
     {
@@ -7,22 +8,22 @@
         /// </summary>
         internal string Axiom;
         internal List<LRule> Rules;
-        internal int TurnAngle, Length;
-
+        internal int Length;
+        internal Vector2 StartPosition, StartDirection;
 
         /// <summary>
         /// Config for generating L-System generation
         /// </summary>
-        /// <param name="axiom">Started sentence</param>
-        /// <param name="rules">Defined rules</param>
-        /// <param name="turnAngle">Angle when turn</param>
-        /// <param name="length">Length of each branch</param>
-        public LConfig(string axiom, List<LRule> rules, int turnAngle, int length)
+        /// <param name="Axiom">Started sentence</param>
+        /// <param name="Rules">Defined rules</param>
+        /// <param name="Length">Length of each branch</param>
+        public LConfig(string axiom, List<LRule> rules,int length, Vector2 startDirection,Vector2 startPosition)
         {
             Axiom = axiom;
             Rules = rules;
-            TurnAngle = turnAngle;
             Length = length;
+            StartDirection = startDirection;
+            StartPosition = startPosition;
         }
 
     }

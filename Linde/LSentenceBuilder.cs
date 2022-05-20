@@ -28,10 +28,10 @@ namespace Linde
             bool wasFound = false;
             for (int i = 0; i < rules.Count; i++)
             {
-                if (rules[i].rule.Key.CompareTo(c) == 0)
+                if (rules[i].Rule.Key.CompareTo(c) == 0)
                 {
                     wasFound = true;
-                    return rules[i].rule.Value.ElementAt(m_random.Next(rules[i].rule.Value.Count));
+                    return rules[i].Rule.Value.ElementAt(m_random.Next(rules[i].Rule.Value.Count));
                 }
             }
             // If character was not found in sentence
