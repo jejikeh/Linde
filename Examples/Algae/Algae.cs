@@ -2,38 +2,54 @@
 using Linde;
 class Algae
 {
+    public static LStep Die(LStep step, float angle)
+    {
+        step.Position.X += 100;
+        return step;
+    }
     private static void Main()
     {
         // Setup the rules
         List<LRule> rules = new List<LRule>()
         {
             new LRule(
-                'A',
-                new List<string>(){"AB"},
-                ActionType.Draw
-            ),
-
+                ifSeeThatChar : 'F',
+                pasteThatStrings :new List<string>(){"FF"},
+                ruleAction : LAction.Draw,
+                saveStep : true
+                ),
             new LRule(
-                'B',
-                new List<string>(){"A"},
-                ActionType.Turn,
-                29f
-            ),
+                ifSeeThatChar : 'X',
+                pasteThatStrings : new List<string>(){"F-[[X]+X]+F[+FX]-X"},
+                ruleAction : LAction.Turn,
+                angle : 30
+                ),
+            new LRule(
+                ifSeeThatChar : '[',
+                pasteThatStrings : new List<string>(){""},
+                ruleAction : LAction.Save
+                ),
+            new LRule(
+                ifSeeThatChar : ']',
+                pasteThatStrings : new List<string>(){""},
+                ruleAction : Die
+                ),
         };
 
         // Setup config
         LConfig config = new LConfig(
-            axiom: "A",
+            axiom: "X",
             rules: rules,
-            length: 1,
             startDirection : new Vector2(0,1),
             startPosition : new Vector2(0,0)
         );
 
         // Class instance
         LSystem linde = new LSystem(config);
+        
 
-        linde.GenerateSentence(3);
+
+        Console.WriteLine(linde.GenerateSentence(1));
         
         foreach(LStep step in linde.GenerateSteps())
         {

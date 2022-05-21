@@ -22,3 +22,7 @@ You can check
 Windows :
 
 Ubuntu :
+
+# TODO
+
+handle empty string in LRule constructor

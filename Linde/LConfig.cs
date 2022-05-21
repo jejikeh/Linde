@@ -8,7 +8,6 @@ namespace Linde
         /// </summary>
         internal string Axiom;
         internal List<LRule> Rules;
-        internal int Length;
         internal Vector2 StartPosition, StartDirection;
 
         /// <summary>
@@ -17,11 +16,10 @@ namespace Linde
         /// <param name="Axiom">Started sentence</param>
         /// <param name="Rules">Defined rules</param>
         /// <param name="Length">Length of each branch</param>
-        public LConfig(string axiom, List<LRule> rules,int length, Vector2 startDirection,Vector2 startPosition)
+        public LConfig(string axiom, List<LRule> rules, Vector2 startDirection,Vector2 startPosition)
         {
             Axiom = axiom;
             Rules = rules;
-            Length = length;
             StartDirection = startDirection;
             StartPosition = startPosition;
         }

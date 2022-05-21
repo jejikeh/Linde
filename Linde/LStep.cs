@@ -9,12 +9,13 @@ namespace Linde
 {
     public struct LStep
     {
-        public float Length;
-        public Vector2 Position,Direction;
+        internal float Length;
+        internal Vector2 Direction;
+        public Vector2 Position;
 
-        public LStep(LConfig config)
+        public LStep(LConfig config, float length)
         {
-            Length = config.Length;
+            Length = length;
             Position = config.StartPosition;
             Direction = config.StartDirection;
         }
@@ -25,15 +26,6 @@ namespace Linde
             Direction = direction;
         }
 
-        internal void Draw()
-        {
-            Position += Direction * Length;
-        }
 
-        internal void Turn(float angle)
-        {
-            Direction = new Vector2(MathF.Cos(angle) * Position.X - MathF.Sin(angle) * Position.Y, MathF.Sin(angle) * Position.X + MathF.Cos(angle) * Position.Y);
-            
-        }
     }
 }
