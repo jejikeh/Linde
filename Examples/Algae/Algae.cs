@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using System.Diagnostics;
 using Linde;
 class Algae
 {
@@ -46,16 +47,20 @@ class Algae
 
         // Class instance
         LSystem linde = new LSystem(config);
-        
 
+        Stopwatch st = new Stopwatch();
 
-        Console.WriteLine(linde.GenerateSentence(1));
-        
-        foreach(LStep step in linde.GenerateSteps())
-        {
-            Console.WriteLine(step.Position);
-        }
-        
+        st.Start();
+        Console.WriteLine(linde.GenerateSentence(2));
+        st.Stop();
+        Console.WriteLine($"Generating sentence  {st.ElapsedMilliseconds}");
+        st.Restart();
+
+        st.Start();
+        Console.WriteLine(linde.GenerateSteps());
+        st.Stop();
+        Console.WriteLine($"Generating steps  {st.ElapsedMilliseconds}");
+
 
     }
 }

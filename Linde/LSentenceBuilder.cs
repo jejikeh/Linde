@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
+﻿using System.Text;
 
 namespace Linde
 {
     internal static class LSentenceBuilder
     {
-        private static Random m_random = new Random();
+        private static System.Random m_random = new System.Random();
 
         // TODO
         // [2] Re-Archetecture code 
