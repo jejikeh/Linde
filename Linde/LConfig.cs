@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+﻿using UnityEngine;
 namespace Linde
 {
     public struct LConfig
