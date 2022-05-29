@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Unity3D.SDK" Version="2021.1.14.1" />
-  </ItemGroup>
-
 </Project>
