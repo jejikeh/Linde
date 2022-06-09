@@ -8,7 +8,7 @@ namespace Linde
 
         // TODO
         // [2] Re-Archetecture code 
-
+        
         /// <summary>
         /// Generate random sentence 
         /// </summary>
@@ -26,17 +26,17 @@ namespace Linde
             {
                 if (rules[i].Rule.Key.CompareTo(c) == 0)
                 {
-                    wasFound = true;
+                    wasFound = true; 
                     return rules[i].Rule.Value.ElementAt(m_random.Next(rules[i].Rule.Value.Count));
                 }
             }
             // If character was not found in sentence
             if (!wasFound)
             {
-                return c.ToString();
+                return new string(c);
             }
 
-            return new string("");
+            return new string();
 
         }
 
@@ -50,7 +50,7 @@ namespace Linde
             // wow this loop 
             for (int j = 0; j < sentence.Length; j++)
             {
-                generatedSentence.Append(GenerateNextStep(sentence[j], rules));
+                generatedSentence = GenerateNextStep(sentence[j], rules);
             }
             // append all generated sentences
             return generatedSentence;

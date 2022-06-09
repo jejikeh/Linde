@@ -28,7 +28,9 @@ namespace Linde
             for (int i = 0; i < iterations; i++)
             {
                 // Decide how many threads use
+                generatedString = LSentenceBuilder.GenerateSentenceOneThread(generatedString, m_config.Rules);
 
+                /*
                 if (i < iterations / 4)
                 {
                     generatedString = LSentenceBuilder.GenerateSentenceOneThread(generatedString, m_config.Rules);
@@ -41,8 +43,9 @@ namespace Linde
                 {
                     generatedString = LSentenceBuilder.GenerateSentenceFourThreads(generatedString, m_config.Rules);
                 }
+                */
             }
-            
+
             return generatedString;
         }
 

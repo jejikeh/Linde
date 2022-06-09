@@ -14,32 +14,22 @@ class Algae
         List<LRule> rules = new List<LRule>()
         {
             new LRule(
-                ifSeeThatChar : 'F',
-                pasteThatStrings :new List<string>(){"FF"},
+                ifSeeThatChar : 'A',
+                pasteThatStrings :new List<string>(){"AB"},
                 ruleAction : LAction.Draw,
                 saveStep : true
                 ),
             new LRule(
-                ifSeeThatChar : 'X',
-                pasteThatStrings : new List<string>(){"F-[[X]+X]+F[+FX]-X"},
+                ifSeeThatChar : 'B',
+                pasteThatStrings : new List<string>(){"A"},
                 ruleAction : LAction.Turn,
                 angle : 30
-                ),
-            new LRule(
-                ifSeeThatChar : '[',
-                pasteThatStrings : new List<string>(){""},
-                ruleAction : LAction.Save
-                ),
-            new LRule(
-                ifSeeThatChar : ']',
-                pasteThatStrings : new List<string>(){""},
-                ruleAction : Die
-                ),
+                )
         };
 
         // Setup config
         LConfig config = new LConfig(
-            axiom: "X",
+            axiom: "A",
             rules: rules,
             startDirection : new Vector2(0,1),
             startPosition : new Vector2(0,0)
@@ -48,18 +38,13 @@ class Algae
         // Class instance
         LSystem linde = new LSystem(config);
 
-        Stopwatch st = new Stopwatch();
 
-        st.Start();
-        Console.WriteLine(linde.GenerateSentence(2));
-        st.Stop();
-        Console.WriteLine($"Generating sentence  {st.ElapsedMilliseconds}");
-        st.Restart();
 
-        st.Start();
-        Console.WriteLine(linde.GenerateSteps());
-        st.Stop();
-        Console.WriteLine($"Generating steps  {st.ElapsedMilliseconds}");
+        for (int i = 0; i < 5; i++)
+        {
+            Console.WriteLine(linde.GenerateSentence(i));
+        }
+
 
 
     }
