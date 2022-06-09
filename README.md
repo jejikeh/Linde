@@ -25,4 +25,4 @@ Ubuntu :
 
 # TODO
 
-handle empty string in LRule constructor
+1. die
