@@ -2,7 +2,7 @@
 
 ![Alt text](./.githubReadme/Logo.png "Linde")
 
-Linde is a fastest Unity L-System Multi-Thread Library what can generate 1000000000 steps in 30 sec!
+Linde is a Unity L-System Multi-Thread Library 
 
 # Warning
 
