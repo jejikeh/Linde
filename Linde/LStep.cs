@@ -19,13 +19,5 @@ namespace Linde
             Position = config.StartPosition;
             Direction = config.StartDirection;
         }
-        public LStep(float length, Vector2 position,Vector2 direction)
-        {
-            Length = length;
-            Position = position;
-            Direction = direction;
-        }
-
-
     }
 }

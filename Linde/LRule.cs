@@ -25,8 +25,6 @@
         /// <param name="ruleAction">call static method</param>
         /// <param name="angle">wich angle to turn</param>
         /// <param name="length">length of step</param>
-        
-
         public LRule(char ifSeeThatChar, List<string> pasteThatStrings, Func<LStep,float,LStep> ruleAction, float angle = 0,bool saveStep = false,float length = 1)
         {
             Rule = new KeyValuePair<char, List<string>>(ifSeeThatChar, pasteThatStrings);

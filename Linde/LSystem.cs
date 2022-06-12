@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using Linde.GenSentence;
+using Linde.GenSteps;
+using System.Text;
 
 namespace Linde
 {
@@ -24,28 +26,7 @@ namespace Linde
         // Generate full sentence
         public StringBuilder GenerateSentence(int iterations)
         {
-
-            for (int i = 0; i < iterations; i++)
-            {
-                // Decide how many threads use
-                generatedString = LSentenceBuilder.GenerateSentenceOneThread(generatedString, m_config.Rules);
-
-                /*
-                if (i < iterations / 4)
-                {
-                    generatedString = LSentenceBuilder.GenerateSentenceOneThread(generatedString, m_config.Rules);
-                }
-                else if (i < iterations / 2)
-                {
-                    generatedString = LSentenceBuilder.GenerateSentenceTwoThreads(generatedString, m_config.Rules);
-                }
-                else
-                {
-                    generatedString = LSentenceBuilder.GenerateSentenceFourThreads(generatedString, m_config.Rules);
-                }
-                */
-            }
-
+            generatedString = LSentenceBuilder.GenerateSentenceOneThread(generatedString, m_config.Rules);
             return generatedString;
         }
 
