@@ -41,7 +41,7 @@ namespace Linde.GenSteps
                         {
                             Func<LStep, float, LStep> act = rules[j].RuleAction;
                             step = act(step, rules[j].Angle);
-                            if (rules[j].SaveStep)
+                            if (rules[j].DrawStep)
                             {
                                 drawingSteps.Add(step); // add to array
                             }

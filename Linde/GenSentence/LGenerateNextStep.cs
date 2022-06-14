@@ -10,7 +10,7 @@ namespace Linde.GenSentence
     {
         internal static StringBuilder GenerateNextStep(char c, List<LRule> rules)
         {
-             
+            bool wasFound = false;
         }
     }
 }

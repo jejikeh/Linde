@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-using System.Diagnostics;
-using Linde;
+﻿using Linde;
 class Algae
 {
     public static LStep Die(LStep step, float angle)
@@ -14,25 +12,23 @@ class Algae
         List<LRule> rules = new List<LRule>()
         {
             new LRule(
-                ifSeeThatChar : 'A',
-                pasteThatStrings :new List<string>(){"AB"},
-                ruleAction : LAction.Draw,
-                saveStep : true
+                a: 'A',
+                b: new List<string>(){"AB"},
+                ruleAction: LAction.Draw,
+                drawStep: true
                 ),
             new LRule(
-                ifSeeThatChar : 'B',
-                pasteThatStrings : new List<string>(){"A"},
-                ruleAction : LAction.Turn,
-                angle : 30
+                a: 'B',
+                b: new List<string>(){"A"},
+                ruleAction: LAction.Turn,
+                angle: 30
                 )
         };
 
         // Setup config
         LConfig config = new LConfig(
             axiom: "A",
-            rules: rules,
-            startDirection : new Vector2(0,1),
-            startPosition : new Vector2(0,0)
+            rules: rules
         );
 
         // Class instance
@@ -44,8 +40,6 @@ class Algae
         {
             Console.WriteLine(linde.GenerateSentence(i));
         }
-
-
 
     }
 }
