@@ -1,6 +1,11 @@
+
+
+
+# currently not working!!!
+
+
 # Linde
 
-![Alt text](./.githubReadme/Logo.png "Linde")
 
 Linde is a Unity L-System Multi-Thread Library 
 
