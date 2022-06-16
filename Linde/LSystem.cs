@@ -8,31 +8,28 @@ namespace Linde
     {
 
         // TODO : 
-        private LConfig m_config = new LConfig();
-        public StringBuilder generatedString;
+        internal LConfig config = new LConfig();
+        internal StringBuilder generatedString;
 
         /// <summary>
         /// Setup a LSystem class instance
         /// </summary>
         /// <param name="config">Config for generation</param>
-        /// <param name="rules">All List of rules for generation</param>
         public LSystem(LConfig config)
         {
-            m_config = config;
-            generatedString = new StringBuilder(m_config.Axiom);
+            generatedString = new StringBuilder(config.Axiom);
+            this.config = config;
         }
 
 
-        // Generate full sentence
-        public StringBuilder GenerateSentence(int iterations)
+        /// <summary>
+        /// Generate sentence based on the config ( rules, axiom )
+        /// </summary>
+        /// <param name="iterations"> number of recursive calls</param>
+        /// <returns></returns>
+        public StringBuilder GenerateSentence(int iterations = 0)
         {
-            generatedString = LSentenceBuilder.GenerateSentenceOneThread(generatedString, m_config.Rules);
-            return generatedString;
-        }
-
-        public List<LStep> GenerateSteps()
-        {
-            return LTurtle.GenerateSteps(generatedString, m_config.Rules, m_config);
+            
         }
     }
 }

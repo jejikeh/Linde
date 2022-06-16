@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Linde.GenSentence
+namespace Linde.GenString
 {
     internal static class LSentenceBuilder
     {
@@ -41,18 +41,34 @@ namespace Linde.GenSentence
         }
 
         /// just default for loop
-        internal static StringBuilder GenerateSentenceOneThread(StringBuilder sentence, List<LRule> rules)
+        internal static StringBuilder GenerateSentenceOneThread(LSystem lsystem, int limitIteration, int currentIteration = 0)
         {
+
+            if (currentIteration >= limitIteration)
+            {
+                return lsystem.generatedString;
+            }
+
             // generatedSentence - result string
-            StringBuilder generatedSentence = new StringBuilder();
+            StringBuilder newGeneratedString = new StringBuilder();
 
             // wow this loop 
-            for (int j = 0; j < sentence.Length; j++)
+            for (int c = 0; c < lsystem.generatedString.Length; c++)
             {
-                generatedSentence.Append(GenerateNextStep(sentence[j], rules));
+                newGeneratedString.Append(lsystem.generatedString[c]);
+                for(int r = 0; r < lsystem.config.Rules.Count; r++)
+                {
+                    if (lsystem.config.Rules[r].Rule.Key.CompareTo(lsystem.generatedString[c]) == 0)
+                    {
+                        newGeneratedString.Append(lsystem.config.Rules[r].Rule.Value.ElementAt(m_random.Next(lsystem.config.Rules[r].Rule.Value.Count)));
+                    }
+                }
             }
             // append all generated sentences
             return generatedSentence;
+
+
+            
         }
     }
 }

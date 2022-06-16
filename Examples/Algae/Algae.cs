@@ -6,6 +6,8 @@ class Algae
         step.Position.X += 100;
         return step;
     }
+
+
     private static void Main()
     {
         // Setup the rules

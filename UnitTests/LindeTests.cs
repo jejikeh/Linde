@@ -21,20 +21,16 @@ namespace UnitTests
             List<LRule> rules = new List<LRule>()
             {
                 new LRule(
-                    ifSeeThatChar : 'A',
-                    pasteThatStrings : new List<string>(){"AB"},
+                    a: 'A',
+                    b : new List<string>(){"AB"},
                     LAction.Draw),
                 new LRule(
-                    ifSeeThatChar : 'B',
-                    pasteThatStrings : new List<string>(){"A"},
+                    a : 'B',
+                    b : new List<string>(){"A"},
                     LAction.Draw),
             };
 
-            LConfig config = new LConfig(
-                axiom : "A",
-                rules : rules,
-                startDirection : new Vector2(0,1),
-                startPosition : new Vector2(0,0));
+            LConfig config = new(axiom: "A", rules: rules);
 
             LSystem linde = new LSystem(config);
 
