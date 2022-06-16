@@ -33,9 +33,8 @@ namespace Linde.GenString
             // If character was not found in sentence
             if (!wasFound)
             {
-                return new StringBuilder(c);
+                return new StringBuilder(c.ToString());
             }
-
             return new StringBuilder("");
 
         }

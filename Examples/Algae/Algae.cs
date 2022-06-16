@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Diagnostics;
 using Linde;
 
 class Algae
@@ -14,33 +15,30 @@ class Algae
     {
         // Setup the rules
         List<LRule> rules = new List<LRule>()
-        {
-            new LRule(
-                a: 'A',
-                b: new List<StringBuilder>(){new StringBuilder("AB")},
-                ruleAction: LAction.Draw,
-                drawStep: true
-                ),
-            new LRule(
-                a: 'B',
-                b: new List<StringBuilder>(){new StringBuilder("A")},
-                ruleAction: LAction.Turn,
-                angle: 30
-                )
-        };
+            {
+                new LRule(
+                    a: '1',
+                    b : new List<StringBuilder>(){new StringBuilder("11")},
+                    LAction.Draw),
+                new LRule(
+                    a : '0',
+                    b : new List<StringBuilder>(){new StringBuilder("1[0]0")},
+                    LAction.Draw),
+            };
 
         // Setup config
         LConfig config = new LConfig(
-            axiom: "A",
+            axiom: "0",
             rules: rules
         );
 
         // Class instance
         LSystem linde = new LSystem(config);
+        Stopwatch st = new Stopwatch();
 
-        for (int i = 0;i < 5; i++)
-        {
-            Console.WriteLine(linde.GenerateSentence(i));
-        }
+        st.Start();
+        Console.WriteLine(linde.GenerateSentence(2));
+        st.Stop();
+        Console.WriteLine($"Taked {st.ElapsedMilliseconds} ms");
     }
 }
