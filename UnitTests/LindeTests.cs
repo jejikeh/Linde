@@ -1,4 +1,4 @@
-using Linde;
+﻿using Linde;
 
 namespace UnitTests
 {
@@ -85,25 +85,21 @@ namespace UnitTests
         {
             List<StringBuilder> expectedOutputs = new List<StringBuilder>()
             {
-                new StringBuilder("0"), // 0 iteration
-                new StringBuilder("1[0]0"), // 1 iteration
-                new StringBuilder("11[1[0]0]1[0]0"), // 2 iteration
-                new StringBuilder("1111[11[1[0]0]1[0]0]11[1[0]0]1[0]0"), // 3 iteration
+                new StringBuilder("F"), // 0 iteration
+                new StringBuilder("F+F−F−F+F"), // 1 iteration
+                new StringBuilder("F+F−F−F+F+F+F−F−F+F−F+F−F−F+F−F+F−F−F+F+F+F−F−F+F"), // 2 iteration
+                new StringBuilder("F+F−F−F+F+F+F−F−F+F−F+F−F−F+F−F+F−F−F+F+F+F−F−F+F+F+F−F−F+F+F+F−F−F+F−F+F−F−F+F−F+F−F−F+F+F+F−F−F+F−F+F−F−F+F+F+F−F−F+F−F+F−F−F+F−F+F−F−F+F+F+F−F−F+F−F+F−F−F+F+F+F−F−F+F−F+F−F−F+F−F+F−F−F+F+F+F−F−F+F+F+F−F−F+F+F+F−F−F+F−F+F−F−F+F−F+F−F−F+F+F+F−F−F+F"), // 3 iteration
             };
 
             List<LRule> rules = new List<LRule>()
             {
                 new LRule(
-                    a: '1',
-                    b : new List<StringBuilder>(){new StringBuilder("11")},
-                    LAction.Draw),
-                new LRule(
-                    a : '0',
-                    b : new List<StringBuilder>(){new StringBuilder("1[0]0")},
+                    a: 'F',
+                    b : new List<StringBuilder>(){new StringBuilder("F+F−F−F+F") },
                     LAction.Draw),
             };
 
-            LConfig config = new(axiom: "0", rules: rules);
+            LConfig config = new(axiom: "F", rules: rules);
 
             LSystem linde = new LSystem(config);
 
@@ -114,6 +110,5 @@ namespace UnitTests
                 Assert.AreEqual(expectedOutputs[i].ToString(), generated.ToString(), "Sentence do not generated correctly!");
             }
         }
-
     }
 }
