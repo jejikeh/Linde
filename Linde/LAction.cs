@@ -8,6 +8,7 @@ namespace Linde
     /// 
     public static class LAction
     {
+        
         /// <summary>
         /// Draw branch forward
         /// </summary>
@@ -16,7 +17,7 @@ namespace Linde
         /// <returns></returns>
         public static LStep Draw(LStep step,float angle)
         {
-            step.Position += step.Direction * step.Length;
+            //step.Position += step.Direction * step.Length;
             return step;
         }
         /// <summary>
@@ -27,7 +28,7 @@ namespace Linde
         /// <returns></returns>
         public static LStep Turn(LStep step,float angle)
         {
-            step.Direction = new Vector2(MathF.Cos(2) * step.Position.X - MathF.Sin(2) * step.Position.Y, MathF.Sin(2) * step.Position.X + MathF.Cos(2) * step.Position.Y);
+            //step.Direction = new Vector2(MathF.Cos(2) * step.Position.X - MathF.Sin(2) * step.Position.Y, MathF.Sin(2) * step.Position.X + MathF.Cos(2) * step.Position.Y);
             return step;
         }
 
@@ -52,6 +53,6 @@ namespace Linde
         {
             return step;
         }
-
+        
     }
 }

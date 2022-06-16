@@ -10,14 +10,10 @@ namespace Linde
     public struct LStep
     {
         internal float Length;
-        internal Vector2 Direction;
-        public Vector2 Position;
 
         public LStep(LConfig config, float length)
         {
             Length = length;
-            Position = config.StartPosition;
-            Direction = config.StartDirection;
         }
     }
 }

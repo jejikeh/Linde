@@ -1,9 +1,11 @@
-﻿using Linde;
+﻿using System.Text;
+using Linde;
+
 class Algae
 {
     public static LStep Die(LStep step, float angle)
     {
-        step.Position.X += 100;
+        //step.Position.X += 100;
         return step;
     }
 
@@ -15,13 +17,13 @@ class Algae
         {
             new LRule(
                 a: 'A',
-                b: new List<string>(){"AB"},
+                b: new List<StringBuilder>(){new StringBuilder("AB")},
                 ruleAction: LAction.Draw,
                 drawStep: true
                 ),
             new LRule(
                 a: 'B',
-                b: new List<string>(){"A"},
+                b: new List<StringBuilder>(){new StringBuilder("A")},
                 ruleAction: LAction.Turn,
                 angle: 30
                 )
@@ -36,12 +38,9 @@ class Algae
         // Class instance
         LSystem linde = new LSystem(config);
 
-
-
-        for (int i = 0; i < 5; i++)
+        for (int i = 0;i < 5; i++)
         {
             Console.WriteLine(linde.GenerateSentence(i));
         }
-
     }
 }

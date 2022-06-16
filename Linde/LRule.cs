@@ -1,4 +1,6 @@
-﻿namespace Linde
+﻿using System.Text;
+
+namespace Linde
 {
     /*
      * LSRule Class
@@ -9,7 +11,7 @@
     {
 
         // using field direct for optimization
-        internal KeyValuePair<char, List<string>> Rule;
+        internal KeyValuePair<char, List<StringBuilder>> Rule;
 
         // Method of rule
         internal Func<LStep,float,LStep> RuleAction;
@@ -25,9 +27,9 @@
         /// <param name="ruleAction">call static method</param>
         /// <param name="angle">wich angle to turn</param>
         /// <param name="length">length of step</param>
-        public LRule(char a, List<string> b, Func<LStep,float,LStep> ruleAction, float angle = 0,bool drawStep = false,float length = 1)
+        public LRule(char a, List<StringBuilder> b, Func<LStep,float,LStep> ruleAction, float angle = 0,bool drawStep = false,float length = 1)
         {
-            Rule = new KeyValuePair<char, List<string>>(a, b);
+            Rule = new KeyValuePair<char, List<StringBuilder>>(a, b);
             RuleAction = ruleAction;
             Angle = angle;
             DrawStep = drawStep;

@@ -13,6 +13,7 @@ namespace Linde.GenSteps
         /// <param name="rules"></param>
         /// <param name="config"></param>
         /// <returns></returns>
+            /*
         internal static List<LStep> GenerateSteps(StringBuilder sentence, List<LRule> rules, LConfig config)
         {
             Stack<LStep> savedSteps = new Stack<LStep>(); // used to store saved steps
@@ -51,5 +52,6 @@ namespace Linde.GenSteps
             }
             return drawingSteps;
         }
+            */
     }
 }

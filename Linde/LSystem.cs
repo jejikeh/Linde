@@ -1,4 +1,4 @@
-﻿using Linde.GenSentence;
+﻿using Linde.GenString;
 using Linde.GenSteps;
 using System.Text;
 
@@ -10,6 +10,7 @@ namespace Linde
         // TODO : 
         internal LConfig config = new LConfig();
         internal StringBuilder generatedString;
+        private int m_iteration_generated = 0;
 
         /// <summary>
         /// Setup a LSystem class instance
@@ -21,15 +22,14 @@ namespace Linde
             this.config = config;
         }
 
-
-        /// <summary>
-        /// Generate sentence based on the config ( rules, axiom )
-        /// </summary>
-        /// <param name="iterations"> number of recursive calls</param>
-        /// <returns></returns>
-        public StringBuilder GenerateSentence(int iterations = 0)
+        public StringBuilder GenerateSentence(int iterations)
         {
-            
+            for(int i = m_iteration_generated; i < iterations; i++)
+            {
+                generatedString = LStringBuilder.GenerateSentenceOneThread(this);
+            }
+            m_iteration_generated = iterations;
+            return generatedString;
         }
     }
 }

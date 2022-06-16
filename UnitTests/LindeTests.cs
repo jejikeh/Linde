@@ -22,11 +22,11 @@ namespace UnitTests
             {
                 new LRule(
                     a: 'A',
-                    b : new List<string>(){"AB"},
+                    b : new List<StringBuilder>(){new StringBuilder("AB")},
                     LAction.Draw),
                 new LRule(
                     a : 'B',
-                    b : new List<string>(){"A"},
+                    b : new List<StringBuilder>(){new StringBuilder("A")},
                     LAction.Draw),
             };
 
